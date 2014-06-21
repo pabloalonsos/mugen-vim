@@ -94,11 +94,13 @@ map <leader>n :execute 'NERDTreeToggle'<CR>
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-	
+
 " Tagbar
 let g:tagbar_usearrows = 1
 map <leader>tb :TagbarToggle<CR>
 
+" Command-T
+map <leader>ct :CommandT<CR>
 
 " Key Mapping
 "  :nmap - Display normal mode maps
