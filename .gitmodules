@@ -1,0 +1,54 @@
+[submodule "bundle/vim-emmet"]
+	path = bundle/vim-emmet
+	url = https://github.com/mattn/emmet-vim
+[submodule "bundle/vim-nerdtree"]
+	path = bundle/vim-nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "bundle/vim-gitgutter"]
+	path = bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "bundle/vim-html5"]
+	path = bundle/vim-html5
+	url = https://github.com/othree/html5.vim
+[submodule "bundle/vim-javascript"]
+	path = bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
+[submodule "bundle/vim-syntastic"]
+	path = bundle/vim-syntastic
+	url = https://github.com/scrooloose/syntastic
+[submodule "bundle/vim-ctrlp"]
+	path = bundle/vim-ctrlp
+	url = https://github.com/kien/ctrlp.vim
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "bundle/vim-tagbar"]
+	path = bundle/vim-tagbar
+	url = https://github.com/majutsushi/tagbar
+[submodule "bundle/vim-snipmate"]
+	path = bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate
+[submodule "bundle/vim-nerdcommenter"]
+	path = bundle/vim-nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
+[submodule "bundle/vim-bettercss"]
+	path = bundle/vim-bettercss
+	url = https://github.com/vim-scripts/Better-CSS-Syntax-for-Vim
+[submodule "bundle/vim-csscolor"]
+	path = bundle/vim-csscolor
+	url = https://github.com/skammer/vim-css-color
+[submodule "bundle/vim-minibuf"]
+	path = bundle/vim-minibuf
+	url = https://github.com/fholgado/minibufexpl.vim
+[submodule "bundle/vim-commandt"]
+	path = bundle/vim-commandt
+	url = https://github.com/wincent/command-t
+[submodule "bundle/vim-repeat"]
+	path = bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule "bundle/vim-colors-hybrid"]
+	path = bundle/vim-colors-hybrid
+	url = https://github.com/w0ng/vim-hybrid
