@@ -52,3 +52,6 @@
 [submodule "bundle/vim-colors-hybrid"]
 	path = bundle/vim-colors-hybrid
 	url = https://github.com/w0ng/vim-hybrid
+[submodule "bundle/vim-addonMWutils"]
+	path = bundle/vim-addonMWutils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils

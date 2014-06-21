@@ -29,9 +29,6 @@ filetype plugin indent on
 " Show line numbers
 set number
 
-" Set font
-set guifont=Source\ Code \ Pro \ Light:h4
-
 " Set tabs
 set tabstop=4
 set shiftwidth=4
@@ -96,7 +93,7 @@ inoremap <>     <>
 map <leader>n :execute 'NERDTreeToggle'<CR>
 
 " CtrlP
-set runtimepat^=~/.vim/bundle/ctrlp.vim
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 	
 " Tagbar
 let g:tagbar_usearrows = 1
