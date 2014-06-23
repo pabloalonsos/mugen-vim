@@ -43,9 +43,6 @@
 [submodule "bundle/vim-minibuf"]
 	path = bundle/vim-minibuf
 	url = https://github.com/fholgado/minibufexpl.vim
-[submodule "bundle/vim-commandt"]
-	path = bundle/vim-commandt
-	url = https://github.com/wincent/command-t
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat
@@ -55,3 +52,6 @@
 [submodule "bundle/vim-addonMWutils"]
 	path = bundle/vim-addonMWutils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/bling/vim-airline

@@ -3,6 +3,9 @@
 set nocp
 set nocompatible
 
+" Remap Leader to ','
+let mapleader=","
+
 " Pathogen
 call pathogen#infect()
 call pathogen#helptags()
@@ -10,6 +13,9 @@ call pathogen#helptags()
 " Set colorscheme
 colorscheme hybrid
 set background=dark
+
+" Set font
+set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 
 " Syntax highlight
 syntax on
@@ -94,13 +100,13 @@ map <leader>n :execute 'NERDTreeToggle'<CR>
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
 
 " Tagbar
 let g:tagbar_usearrows = 1
 map <leader>tb :TagbarToggle<CR>
-
-" Command-T
-map <leader>ct :CommandT<CR>
 
 " Key Mapping
 "  :nmap - Display normal mode maps
