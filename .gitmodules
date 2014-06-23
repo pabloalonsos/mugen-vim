@@ -40,9 +40,6 @@
 [submodule "bundle/vim-csscolor"]
 	path = bundle/vim-csscolor
 	url = https://github.com/skammer/vim-css-color
-[submodule "bundle/vim-minibuf"]
-	path = bundle/vim-minibuf
-	url = https://github.com/fholgado/minibufexpl.vim
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat
