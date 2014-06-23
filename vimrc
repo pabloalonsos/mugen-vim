@@ -10,6 +10,9 @@ let mapleader=","
 call pathogen#infect()
 call pathogen#helptags()
 
+" Show status line always
+set laststatus=2
+
 " Set colorscheme
 colorscheme hybrid
 set background=dark
