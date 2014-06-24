@@ -34,12 +34,6 @@
 [submodule "bundle/vim-nerdcommenter"]
 	path = bundle/vim-nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter
-[submodule "bundle/vim-bettercss"]
-	path = bundle/vim-bettercss
-	url = https://github.com/vim-scripts/Better-CSS-Syntax-for-Vim
-[submodule "bundle/vim-csscolor"]
-	path = bundle/vim-csscolor
-	url = https://github.com/skammer/vim-css-color
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat
