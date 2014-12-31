@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/pabloalonso/Code/NYU/CS4523/Health-and-Fitness'
+let g:netrw_dirhist_2='/Users/pabloalonso/Code/NYU/CS4523/Health-and-Fitness/server'
+let g:netrw_dirhist_3='/Users/pabloalonso/.tmuxinator'
