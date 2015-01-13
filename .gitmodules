@@ -52,9 +52,3 @@
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
-[submodule "bundle/vim-ag"]
-	path = bundle/vim-ag
-	url = https://github.com/rking/ag.vim.git
-[submodule "bundle/vim-asm6502"]
-	path = bundle/vim-asm6502
-	url = https://github.com/vim-scripts/asmM6502.vim.git

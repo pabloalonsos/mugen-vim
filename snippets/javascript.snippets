@@ -1,28 +1,4 @@
-### Common
-
-snippet require
-	var ${1} = require('${2}');
-
-### ReactJS
-
-snippet jsx
-	/** @JSX React.DOM */
-
-snippet reactclass
-	var ${1} = React.createClass({
-		render: function(){
-			return (
-				${2}
-			)
-		}
-	});
-snippet rencomp
-	React.renderComponent(
-		${1},
-		${2}
-	);
-
-### AngularJS
+### angularJS
 # controller
 snippet ngcont
 	${1:/* module name */}.controller(

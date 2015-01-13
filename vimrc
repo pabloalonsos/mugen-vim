@@ -6,9 +6,6 @@ set nocompatible
 " Remap Leader to ','
 let mapleader=","
 
-" Remap ESC to CAPSLOCK
-" inoremap jj <ESC>
-
 " Pathogen
 call pathogen#infect()
 call pathogen#helptags()
@@ -101,11 +98,6 @@ inoremap <>     <>
 " Plugin Configuration "
 """"""""""""""""""""""""
 
-" Airline
-let g:airline_powerline_fonts = 1
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#fnamemod = ':t'
-
 " NERDTree
 map <leader>n :execute 'NERDTreeToggle'<CR>
 
@@ -138,7 +130,7 @@ map <C-l> <C-W>l
 nnoremap j gj
 nnoremap k gk
 
-" Move a line of text using ALT+[jk] or Command+[jk] on mac
+" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
