@@ -7,7 +7,7 @@ set nocompatible
 let mapleader=","
 
 " Remap ESC to CAPSLOCK
-inoremap jj <ESC>
+" inoremap jj <ESC>
 
 " Pathogen
 call pathogen#infect()
@@ -17,8 +17,8 @@ call pathogen#helptags()
 set laststatus=2
 
 " Set colorscheme
-colorscheme hybrid
 set background=dark
+colorscheme hybrid
 
 " Set font
 set guifont=Source\ Code\ Pro\ for\ Powerline:h12
@@ -100,6 +100,11 @@ inoremap <>     <>
 """"""""""""""""""""""""
 " Plugin Configuration "
 """"""""""""""""""""""""
+
+" Airline
+let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#fnamemod = ':t'
 
 " NERDTree
 map <leader>n :execute 'NERDTreeToggle'<CR>
