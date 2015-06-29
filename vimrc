@@ -93,6 +93,12 @@ inoremap <<CR>  <<CR>><Esc>O
 inoremap <<     <
 inoremap <>     <>
 
+" map control-space to auto-complete
+inoremap <C-space> <C-x><C-o>
+
+" buffer navigation
+noremap <silent> [b :bprevious <CR>
+noremap <silent> ]b :bnext <CR>
 
 """"""""""""""""""""""""
 " Plugin Configuration "
@@ -102,7 +108,7 @@ inoremap <>     <>
 map <leader>n :execute 'NERDTreeToggle'<CR>
 
 " CtrlP
-"set runtimepath^=~/.vim/bundle/ctrlp.vim
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 "let g:ctrlp_match_window = 'bottom,order:ttb'
 "let g:ctrlp_switch_buffer = 0
 "let g:ctrlp_working_path_mode = 0
