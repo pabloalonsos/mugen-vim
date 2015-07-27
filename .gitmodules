@@ -67,3 +67,6 @@
 [submodule "bundle/vim-typescript"]
 	path = bundle/vim-typescript
 	url = https://github.com/leafgarland/typescript-vim
+[submodule "bundle/vim-racer"]
+	path = bundle/vim-racer
+	url = https://github.com/phildawes/racer.git

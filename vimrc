@@ -93,6 +93,9 @@ inoremap <<CR>  <<CR>><Esc>O
 inoremap <<     <
 inoremap <>     <>
 
+imap <C-j> <Esc>:exec <Esc>wa
+imap <C-l> <Esc>:exec <Esc>A
+
 " map control-space to auto-complete
 inoremap <C-space> <C-x><C-o>
 
@@ -116,6 +119,11 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " Tagbar
 let g:tagbar_usearrows = 1
 map <leader>tb :TagbarToggle<CR>
+
+" Rust-Racer
+set hidden "Also it's worth turning on 'hidden' mode for buffers otherwise you need to save the current buffer every time you do a goto-definition"
+let g:racer_cmd="/Users/pabloalonso/.vim/bundle/rust-racer.vim/target/release/racer"
+let $RUST_SRC_PATH="/usr/local/bin"
 
 " Key Mapping
 "  :nmap - Display normal mode maps
