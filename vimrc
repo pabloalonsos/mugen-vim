@@ -23,7 +23,7 @@ set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 " Syntax highlight
 syntax on
 
-" Turn on the WiLd menu
+" Turn on the Wild menu
 set wildmenu
 
 "Always show current position
@@ -38,12 +38,18 @@ filetype plugin indent on
 " Show line numbers
 set number
 
+" Set relative line number
+set relativenumber
+
 " Set tabs
 set tabstop=4
 set shiftwidth=4
 
 " Use spaces instead of tabs
 set expandtab
+
+" set clipboard to unnamed for tmux copy-paste
+set clipboard=unnamed
 
 " Configure backspace behavior
 "    indent: backspace through automatic indent
@@ -108,22 +114,46 @@ noremap <silent> ]b :bnext <CR>
 """"""""""""""""""""""""
 
 " NERDTree
-map <leader>n :execute 'NERDTreeToggle'<CR>
+"map <leader>n :execute 'NERDTreeToggle'<CR>
+
+map <leader>e :Explore<CR>:set number<CR>
+set path=$PWD/**
+set suffixesadd=.js,.py,.c,.cpp,.json
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-"let g:ctrlp_match_window = 'bottom,order:ttb'
-"let g:ctrlp_switch_buffer = 0
-"let g:ctrlp_working_path_mode = 0
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_show_hidden = 1
+
+" ctags
+set tags=./tags,tags
 
 " Tagbar
 let g:tagbar_usearrows = 1
 map <leader>tb :TagbarToggle<CR>
 
+" Rust-Tagbar
+let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds' : [
+        \'T:types,type definitions',
+        \'f:functions,function definitions',
+        \'g:enum,enumeration names',
+        \'s:structure names',
+        \'m:modules,module names',
+        \'c:consts,static constants',
+        \'t:traits,traits',
+        \'i:impls,trait implementations',
+    \]
+    \}
+
 " Rust-Racer
 set hidden "Also it's worth turning on 'hidden' mode for buffers otherwise you need to save the current buffer every time you do a goto-definition"
 let g:racer_cmd="/Users/pabloalonso/.vim/bundle/rust-racer.vim/target/release/racer"
 let $RUST_SRC_PATH="/usr/local/bin"
+
+" Vim-Airline
+let g:airline#extensions#tabline#enabled = 1
 
 " Key Mapping
 "  :nmap - Display normal mode maps
@@ -144,7 +174,7 @@ map <C-l> <C-W>l
 nnoremap j gj
 nnoremap k gk
 
-" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
+" Move a line of text using ALT+[jk] or Command+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
@@ -163,5 +193,16 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.js :call DeleteTrailingWS()
+autocmd BufWrite *.rs :call DeleteTrailingWS()
+
+" Deactivate arrow keys
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
