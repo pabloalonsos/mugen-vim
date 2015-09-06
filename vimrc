@@ -106,6 +106,8 @@ imap <C-l> <Esc>:exec <Esc>A
 inoremap <C-space> <C-x><C-o>
 
 " buffer navigation
+set hidden
+nmap <leader>n :enew<cr>
 noremap <silent> [b :bprevious <CR>
 noremap <silent> ]b :bnext <CR>
 
@@ -122,8 +124,12 @@ set suffixesadd=.js,.py,.c,.cpp,.json
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|\.swp$\'
 let g:ctrlp_show_hidden = 1
+"let g:ctrlp_custom_ignore = {
+"    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|',
+"    \ 'file': '\.swp$\' }
 
 " ctags
 set tags=./tags,tags
@@ -148,12 +154,12 @@ let g:tagbar_type_rust = {
     \}
 
 " Rust-Racer
-set hidden "Also it's worth turning on 'hidden' mode for buffers otherwise you need to save the current buffer every time you do a goto-definition"
 let g:racer_cmd="/Users/pabloalonso/.vim/bundle/rust-racer.vim/target/release/racer"
 let $RUST_SRC_PATH="/usr/local/bin"
 
 " Vim-Airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Key Mapping
 "  :nmap - Display normal mode maps
