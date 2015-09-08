@@ -13,6 +13,18 @@ call pathogen#helptags()
 " Show status line always
 set laststatus=2
 
+" Highlight cursor line
+set cursorline
+
+" Allow folding
+set foldenable
+
+" Fold by blocks
+set foldmethod=syntax
+
+" Fold nested blocks by default
+set foldlevelstart=10
+
 " Set colorscheme
 set background=dark
 colorscheme hybrid
@@ -125,11 +137,12 @@ set suffixesadd=.js,.py,.c,.cpp,.json
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|\.swp$\'
 let g:ctrlp_show_hidden = 1
-"let g:ctrlp_custom_ignore = {
-"    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|',
-"    \ 'file': '\.swp$\' }
+"let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|\.swp$\|.git|target'
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/](\.git|node_modules|\.sass-cache|bower_components|build|target)$',
+    \ 'file': '\.swp$'
+    \ }
 
 " ctags
 set tags=./tags,tags
