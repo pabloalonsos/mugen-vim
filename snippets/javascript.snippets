@@ -1,4 +1,103 @@
-### angularJS
+## General
+
+snippet f
+	function(${1}) {
+		${2}
+	}
+
+snippet func
+	function ${1} (${2}) {
+		${3}
+	}
+
+snippet log
+	console.log(${1});
+
+snippet proto
+	prototype.${1:/* fn name */} = function(${2}) {
+		${3}
+	}
+
+snippet if
+	if (${1:/* condition */}) {
+		${2: /* do something */}
+	}
+
+snippet ife
+	if (${1:/* condition */}) {
+		${2: /* do something */}
+	} else {
+		${3: /* do something else */}
+	}
+
+### Jasmine
+
+snippet describe
+	describe('${1: /* something */}', function () {
+		${2: /* ??? */}
+	});
+
+snippet it
+	it('should ${1: /* does things /*}', function () {
+		${2: /* ??? */}
+	});
+snippet beforeEach
+	beforeEach (function (${1}) {
+		${2}
+	});
+
+### ReactJS
+
+snippet pt
+	propTypes: {
+		${1}: React.PropTypes.${2}
+	},
+
+snippet gdp
+	getDefaultProps() {
+		return {
+			${1}
+		};
+	},
+
+snippet gis
+	getInitialState() {
+		return {
+			${1}
+		};
+	},
+
+snippet cwrp
+	componentWillReceiveProps(newProps) {
+		${1}
+	},
+
+snippet cdm
+	componentDidMount() {
+		${1}
+	},
+
+snippet ren
+	render() {
+		return (
+			${0:<div />}
+		);
+	}
+
+snippet jsx
+	import React, { Component } from 'react';
+
+	export default class ${1:ClassName} extends Component {
+		render() {
+			return (
+				${0:<div />}
+			);
+		}
+	};
+
+
+### AngularJS
+
 # controller
 snippet ngcont
 	${1:/* module name */}.controller(
@@ -53,47 +152,11 @@ snippet ngroute
 		}
 	});
 
-### javascript 
-snippet f
-	function (${1}) {
-		${2}
-	}
-snippet func
-	function ${1} (${2}) {
-		${3}
-	}
-#
-snippet proto
-	prototype.${1:/* fn name */} = function(${2}) {
-		${3}
-	}
-
-snippet if
-	if (${1:/* condition */}) {
-		${2: /* do something */}
-	}
-
-snippet ife
-	if (${1:/* condition */}) {
-		${2: /* do something */}
-	} else {
-		${3: /* do something else */}
-	}
-
-### jasmine
-snippet describe
-	describe('${1: /* something */}', function () {
-		${2: /* ??? */}
-	});
-
-snippet it
-	it('should ${1: /* does things /*}', function () {
-		${2: /* ??? */}
-	});
 snippet nginject
 	inject (function($injector) {
 		${1} = $injector.get('${2}');
 	});
+
 snippet ngspec:controller
 	describe('${1}', function () {
 		var $scope,
@@ -115,6 +178,7 @@ snippet ngspec:controller
 
 		${4}
 	});
+
 snippet ngspec:service
 	describe('${1}', function () {
 		var $rootScope,
@@ -133,9 +197,5 @@ snippet ngspec:service
 		});
 
 		${4}
-	});
-snippet beforeEach
-	beforeEach (function (${1}) {
-		${2}
 	});
 

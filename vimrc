@@ -127,20 +127,28 @@ noremap <silent> ]b :bnext <CR>
 " Plugin Configuration "
 """"""""""""""""""""""""
 
-" NERDTree
-"map <leader>n :execute 'NERDTreeToggle'<CR>
+" Syntastic
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_args = "--no-eslintrc --config ~/Code/eslintrc"
+" use eslintrc in current directory. Else look upwards. Else use standard
+autocmd FileType javascript let b:syntastic_checkers = findfile('./eslintrc', '.;') != '' ? ['eslint'] : ['standard']
+
+" vim-jsx
+let g:jsx_ext_required = 0
 
 map <leader>e :Explore<CR>:set number<CR>
 set path=$PWD/**
 set suffixesadd=.js,.py,.c,.cpp,.json
 
+" emmet
+" let g:user_emmet_expandabbr_key = '<C-F>'
+
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_show_hidden = 1
-"let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|\.swp$\|.git|target'
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.git|node_modules|\.sass-cache|bower_components|build|target)$',
+    \ 'dir':  '\v[\/](\.git|node_modules|\.sass-cache|bower_components|build|target|dist)$',
     \ 'file': '\.swp$'
     \ }
 
@@ -194,10 +202,16 @@ nnoremap j gj
 nnoremap k gk
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+" nmap <M-j> mz:m+<cr>`z
+" nmap <M-k> mz:m-2<cr>`z
+" vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+" vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 if has("mac") || has("macunix")
   nmap <D-j> <M-j>
