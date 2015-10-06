@@ -1,14 +1,41 @@
-
-" Allow all commands
-set nocp
-set nocompatible
+if has('vim')
+    " Allow all commands
+    set nocompatible
+endif
 
 " Remap Leader to ','
 let mapleader=","
 
-" Pathogen
-call pathogen#infect()
-call pathogen#helptags()
+" Vundle Setup
+filetype off
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'bling/vim-airline'
+Bundle 'vim-scripts/asmM6502.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'mattn/emmet-vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'othree/html5.vim'
+Bundle 'w0ng/vim-hybrid'
+Bundle 'pangloss/vim-javascript'
+Bundle 'mxw/vim-jsx'
+Bundle 'groenewege/vim-less'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-obsession'
+Bundle 'phildawes/racer'
+Bundle 'rust-lang/rust.vim'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'garbas/vim-snipmate'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/tlib'
+Bundle 'leafgarland/typescript-vim'
 
 " Show status line always
 set laststatus=2
@@ -82,7 +109,6 @@ set ignorecase
 set smartcase
 
 " Brackets and quotes
-
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
@@ -201,26 +227,7 @@ map <C-l> <C-W>l
 nnoremap j gj
 nnoremap k gk
 
-" Move a line of text using ALT+[jk] or Command+[jk] on mac
-" nmap <M-j> mz:m+<cr>`z
-" nmap <M-k> mz:m-2<cr>`z
-" vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-" vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
-
-if has("mac") || has("macunix")
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
-endif
-
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+" Delete trailing white space on save
 func! DeleteTrailingWS()
   exe "normal mz"
   %s/\s\+$//ge
@@ -228,6 +235,20 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.js :call DeleteTrailingWS()
 autocmd BufWrite *.rs :call DeleteTrailingWS()
+autocmd BufWrite *.c :call DeleteTrailingWS()
+autocmd BufWrite *.cpp :call DeleteTrailingWS()
+
+" Switch from relative to absolute line number
+function! NumberToggle()
+    set number
+    if(&relativenumber == 1)
+        set relativenumber!
+    else
+        set relativenumber
+    endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
 
 " Deactivate arrow keys
 inoremap <Up> <Nop>
@@ -239,3 +260,19 @@ nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
+
+" nvim specific commands
+if has('nvim')
+    " Exit terminal mode with Esc
+    :tnoremap <Esc> <C-\><C-n>
+    " Use alt+hjkl to move around windows
+    :tnoremap <A-h> <C-\><C-n><C-w>h
+    :tnoremap <A-j> <C-\><C-n><C-w>j
+    :tnoremap <A-k> <C-\><C-n><C-w>k
+    :tnoremap <A-l> <C-\><C-n><C-w>l
+    :nnoremap <A-h> <C-w>h
+    :nnoremap <A-j> <C-w>j
+    :nnoremap <A-k> <C-w>k
+    :nnoremap <A-l> <C-w>l
+else
+endif
