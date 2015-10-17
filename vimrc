@@ -36,6 +36,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/tlib'
 Bundle 'leafgarland/typescript-vim'
+Bundle 'jlanzarotta/bufexplorer'
 
 " Show status line always
 set laststatus=2
@@ -140,6 +141,14 @@ inoremap <>     <>
 imap <C-j> <Esc>:exec <Esc>wa
 imap <C-l> <Esc>:exec <Esc>A
 
+" move to beginning/end of line
+nnoremap B ^
+nnoremap E $
+
+" $/^ doesn't do anything
+nnoremap $ <nop>
+nnoremap ^ <nop>
+
 " map control-space to auto-complete
 inoremap <C-space> <C-x><C-o>
 
@@ -177,6 +186,30 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](\.git|node_modules|\.sass-cache|bower_components|build|target|dist)$',
     \ 'file': '\.swp$'
     \ }
+" Use Ag as the default search engine for ctrlP
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" Always open files in new buffers
+let g:ctrlp_switch_buffer = 0
+" If project path has been changed through vim, change also ctrlP's
+let g:ctrlp_working_path_mode = 0
+
+" Ag
+nnoremap \ :Ag<space>
+
+" make vim grep use Ag
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " ctags
 set tags=./tags,tags
