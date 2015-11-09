@@ -11,32 +11,35 @@ filetype off
 set runtimepath+=~/.vim/bundle/vundle
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'bling/vim-airline'
-Bundle 'vim-scripts/asmM6502.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'othree/html5.vim'
-Bundle 'w0ng/vim-hybrid'
-Bundle 'pangloss/vim-javascript'
-Bundle 'mxw/vim-jsx'
-Bundle 'groenewege/vim-less'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-obsession'
-Bundle 'phildawes/racer'
-Bundle 'rust-lang/rust.vim'
+Bundle 'bling/vim-airline'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'garbas/vim-snipmate'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/tlib'
-Bundle 'leafgarland/typescript-vim'
+Bundle 'gmarik/vundle'
+Bundle 'groenewege/vim-less'
 Bundle 'jlanzarotta/bufexplorer'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
+Bundle 'leafgarland/typescript-vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'marcWeber/vim-addon-mw-utils'
+Bundle 'mattn/emmet-vim'
+Bundle 'mxw/vim-jsx'
+Bundle 'othree/html5.vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'phildawes/racer'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'rking/ag.vim'
+Bundle 'rust-lang/rust.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-obsession'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/asmM6502.vim'
+Bundle 'vim-scripts/tlib'
+Bundle 'w0ng/vim-hybrid'
 
 " Show status line always
 set laststatus=2
@@ -108,6 +111,13 @@ set hlsearch
 set ignorecase
 " Case-sensitive if capital letters are included in search pattern
 set smartcase
+
+" No swap files
+set noswapfile
+" No trying to delete old backups
+set nobackup
+" No backups before overwriting file
+set nowritebackup
 
 " Brackets and quotes
 inoremap {      {}<Left>
@@ -209,7 +219,7 @@ if executable('ag')
 endif
 
 " bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " ctags
 set tags=./tags,tags
