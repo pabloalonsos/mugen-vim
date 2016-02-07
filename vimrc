@@ -38,6 +38,7 @@ Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-obsession'
 Bundle 'tpope/vim-surround'
+Bundle 'venantius/vim-eastwood'
 Bundle 'vim-scripts/asmM6502.vim'
 Bundle 'vim-scripts/tlib'
 Bundle 'w0ng/vim-hybrid'
@@ -249,6 +250,7 @@ let g:racer_cmd="/Users/pabloalonso/.vim/bundle/rust-racer.vim/target/release/ra
 let $RUST_SRC_PATH="/usr/local/bin"
 
 " Vim-Airline
+let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
