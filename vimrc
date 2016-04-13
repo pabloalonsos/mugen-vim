@@ -8,7 +8,7 @@ let mapleader=","
 
 " Vundle Setup
 filetype off
-set runtimepath+=~/.vim/bundle/vundle
+set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 Bundle 'airblade/vim-gitgutter'
@@ -17,8 +17,8 @@ Bundle 'derekwyatt/vim-scala'
 Bundle 'garbas/vim-snipmate'
 Bundle 'gmarik/vundle'
 Bundle 'groenewege/vim-less'
+Bundle 'guns/vim-clojure-static'
 Bundle 'jlanzarotta/bufexplorer'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'leafgarland/typescript-vim'
@@ -63,7 +63,7 @@ set background=dark
 colorscheme hybrid
 
 " Set font
-set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+set guifont=Source\ Code\ Pro\ Light:h12
 
 " Syntax highlight
 syntax on
@@ -194,10 +194,8 @@ set suffixesadd=.js,.py,.c,.cpp,.json
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.git|node_modules|\.sass-cache|bower_components|build|target|dist)$',
-    \ 'file': '\.swp$'
-    \ }
+let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules|\.sass-cache|bower_components|build|target|dist)$'
+
 " Use Ag as the default search engine for ctrlP
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " Always open files in new buffers
@@ -250,7 +248,7 @@ let g:racer_cmd="/Users/pabloalonso/.vim/bundle/rust-racer.vim/target/release/ra
 let $RUST_SRC_PATH="/usr/local/bin"
 
 " Vim-Airline
-let g:airline_theme='powerlineish'
+" let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
