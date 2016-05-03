@@ -1,3 +1,4 @@
-set guifont=Source\ Code\ Pro\ ExtraLight:h12
+set guifont=Source\ Code\ Pro\ for\ Powerline\ Light:h12
 set background=dark
-colorscheme hybrid
+" colorscheme hybrid
+colorscheme itg-dark

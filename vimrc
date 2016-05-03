@@ -8,40 +8,50 @@ let mapleader=","
 
 " Vundle Setup
 filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
+"set runtimepath+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+"call vundle#rc()
 
-Bundle 'airblade/vim-gitgutter'
-Bundle 'bling/vim-airline'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'garbas/vim-snipmate'
-Bundle 'gmarik/vundle'
-Bundle 'groenewege/vim-less'
-Bundle 'guns/vim-clojure-static'
-Bundle 'jlanzarotta/bufexplorer'
-Bundle 'kien/ctrlp.vim'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'leafgarland/typescript-vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'marcWeber/vim-addon-mw-utils'
-Bundle 'mattn/emmet-vim'
-Bundle 'mxw/vim-jsx'
-Bundle 'othree/html5.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'phildawes/racer'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'rking/ag.vim'
-Bundle 'rust-lang/rust.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-obsession'
-Bundle 'tpope/vim-surround'
-Bundle 'venantius/vim-eastwood'
-Bundle 'vim-scripts/asmM6502.vim'
-Bundle 'vim-scripts/tlib'
-Bundle 'w0ng/vim-hybrid'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bling/vim-airline'
+Plugin 'deraen/vim-cider'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'garbas/vim-snipmate'
+Plugin 'gmarik/vundle'
+Plugin 'groenewege/vim-less'
+Plugin 'guns/vim-clojure-static'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'kien/ctrlp.vim'
+Plugin 'luochen1990/rainbow'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'marcWeber/vim-addon-mw-utils'
+Plugin 'mattn/emmet-vim'
+Plugin 'mhartington/oceanic-next'
+Plugin 'moll/vim-node'
+Plugin 'mxw/vim-jsx'
+" Plugin 'neilagabriel/vim-geeknote'
+Plugin 'othree/html5.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'phildawes/racer'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'rking/ag.vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-surround'
+Plugin 'venantius/vim-eastwood'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-scripts/asmM6502.vim'
+Plugin 'vim-scripts/tlib'
+Plugin 'w0ng/vim-hybrid'
+
+call vundle#end()
 
 " Show status line always
 set laststatus=2
@@ -59,14 +69,17 @@ set foldmethod=syntax
 set foldlevelstart=10
 
 " Set colorscheme
+syntax enable
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
-colorscheme hybrid
+colorscheme OceanicNext
+" colorscheme hybrid
 
 " Set font
-set guifont=Source\ Code\ Pro\ Light:h12
+set guifont=Source\ Code\ Pro\ for\ Powerline\ Light:h12
 
 " Syntax highlight
-syntax on
+" syntax on
 
 " Turn on the Wild menu
 set wildmenu
@@ -144,6 +157,10 @@ inoremap ""     "
 inoremap '      ''<Left>
 inoremap '<CR>  '<CR>'<Esc>O
 inoremap ''     '
+
+inoremap `      ``<Left>
+inoremap `<CR>  `<CR>`<Esc>O
+inoremap ``     `
 
 inoremap <      <><Left>
 inoremap <<CR>  <<CR>><Esc>O
@@ -244,39 +261,32 @@ let g:tagbar_type_rust = {
     \}
 
 " Rust-Racer
-let g:racer_cmd="/Users/pabloalonso/.vim/bundle/rust-racer.vim/target/release/racer"
+let g:racer_cmd="/Users/pabloalonso/.vim/bundle/racer/target/release/racer"
 let $RUST_SRC_PATH="/usr/local/bin"
 
 " Vim-Airline
-" let g:airline_theme='powerlineish'
+"let g:airline_theme='powerlineish'
+let g:airline_theme='murmur'
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Rainbow Parentheses
-"    \ ['black',       'SeaGreen3'],
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['red',         'firebrick3']
-    \ ]
+ let g:rainbow_active = 1
 
-" Always on
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+ let g:rainbow_conf = {
+             \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+             \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+             \   'operators': '_,_',
+             \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+             \}
+
+" Vim-Geeknote
+" let g:GeeknoteNeovim="True"
+" let g:GeeknoteFormat="markdown"
+
+"JavaScript syntax
+let g:used_javascript_libs = 'underscore,angularjs,react,chai'
 
 " Key Mapping
 "  :nmap - Display normal mode maps
