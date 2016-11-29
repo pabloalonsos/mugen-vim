@@ -6,14 +6,17 @@ endif
 " Remap Leader to ','
 let mapleader=","
 
+" Allow python in neovim
+let g:python_host_prog='/usr/local/bin/python2.7'
+
 " Vundle Setup
 filetype off
-"set runtimepath+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-"call vundle#rc()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'ensime/ensime-vim'
+Plugin 'neilagabriel/vim-geeknote'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'deraen/vim-cider'
@@ -21,7 +24,9 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/vundle'
 Plugin 'groenewege/vim-less'
+Plugin 'guns/vim-clojure-highlight'
 Plugin 'guns/vim-clojure-static'
+Plugin 'jceb/vim-orgmode'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'kien/ctrlp.vim'
 Plugin 'luochen1990/rainbow'
@@ -44,12 +49,14 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
+Plugin 'racer-rust/vim-racer'
 Plugin 'tpope/vim-surround'
 Plugin 'venantius/vim-eastwood'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/asmM6502.vim'
 Plugin 'vim-scripts/tlib'
 Plugin 'w0ng/vim-hybrid'
+Plugin 'waiting-for-dev/vim-www'
 
 call vundle#end()
 
@@ -193,9 +200,9 @@ noremap <silent> ]b :bnext <CR>
 
 " Syntastic
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_args = "--no-eslintrc --config ~/Code/eslintrc"
-" use eslintrc in current directory. Else look upwards. Else use standard
-autocmd FileType javascript let b:syntastic_checkers = findfile('./eslintrc', '.;') != '' ? ['eslint'] : ['standard']
+" let g:syntastic_javascript_eslint_args = "--no-eslintrc --config ~/Code/eslintrc"
+" " use eslintrc in current directory. Else look upwards. Else use standard
+" autocmd FileType javascript let b:syntastic_checkers = findfile('./eslintrc', '.;') != '' ? ['eslint'] : ['standard']
 
 " vim-jsx
 let g:jsx_ext_required = 0
@@ -262,7 +269,14 @@ let g:tagbar_type_rust = {
 
 " Rust-Racer
 let g:racer_cmd="/Users/pabloalonso/.vim/bundle/racer/target/release/racer"
-let $RUST_SRC_PATH="/usr/local/bin"
+let $RUST_SRC_PATH="/Users/pabloalonso/.rust/src"
+
+" Scala Ensime
+"Typechecking after writing
+autocmd BufWritePost *.scala silent :EnTypeCheck
+"Easy Type Inspection
+nnoremap <localleader>t :EnTypeCheck<CR>
+
 
 " Vim-Airline
 "let g:airline_theme='powerlineish'
@@ -285,8 +299,11 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " let g:GeeknoteNeovim="True"
 " let g:GeeknoteFormat="markdown"
 
+" Vim-www
+let g:www_shortcut_engines = { 'devdocs': ['Devdocs']  }
+
 "JavaScript syntax
-let g:used_javascript_libs = 'underscore,angularjs,react,chai'
+let g:used_javascript_libs = 'underscore,angularjs,react,chai,lodash'
 
 " Key Mapping
 "  :nmap - Display normal mode maps
@@ -329,6 +346,18 @@ function! NumberToggle()
 endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
+
+function! SpacesToggle()
+    if(&tabstop == 4)
+        set tabstop=2
+        set shiftwidth=2
+    else
+        set tabstop=4
+        set shiftwidth=4
+    endif
+endfunc
+
+nnoremap <C-s> :call SpacesToggle()<cr>
 
 " Deactivate arrow keys
 inoremap <Up> <Nop>

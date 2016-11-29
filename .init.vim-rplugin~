@@ -1,0 +1,44 @@
+" ruby plugins
+
+
+" python plugins
+call remote#host#RegisterPlugin('python', '/Users/pabloalonso/.vim/bundle/ensime-vim/rplugin/python/ensime.py', [
+      \ {'sync': v:true, 'name': 'BufLeave', 'type': 'autocmd', 'opts': {'pattern': '*.scala', 'eval': 'expand("<afile>")'}},
+      \ {'sync': v:true, 'name': 'CursorHold', 'type': 'autocmd', 'opts': {'pattern': '*.scala', 'eval': 'expand("<afile>")'}},
+      \ {'sync': v:true, 'name': 'CursorMoved', 'type': 'autocmd', 'opts': {'pattern': '*.scala', 'eval': 'expand("<afile>")'}},
+      \ {'sync': v:true, 'name': 'VimEnter', 'type': 'autocmd', 'opts': {'pattern': '*.scala', 'eval': 'expand("<afile>")'}},
+      \ {'sync': v:true, 'name': 'VimLeave', 'type': 'autocmd', 'opts': {'pattern': '*.scala', 'eval': 'expand("<afile>")'}},
+      \ {'sync': v:true, 'name': 'EnAddImport', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnClients', 'type': 'command', 'opts': {'nargs': '0', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnDebugBacktrace', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnDebugClearBreaks', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnDebugContinue', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnDebugNext', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnDebugSetBreak', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnDebugStart', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnDebugStep', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnDebugStepOut', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnDeclaration', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnDeclarationSplit', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnDocBrowse', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnDocUri', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnFormatSource', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnInline', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnInspectType', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnInstall', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnOrganizeImports', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnShowPackage', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnRename', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnSuggestImport', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnSearch', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnSymbol', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnSymbolByName', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnToggleFullType', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnToggleTeardown', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnType', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnTypeCheck', 'type': 'command', 'opts': {'nargs': '*', 'range': ''}},
+      \ {'sync': v:true, 'name': 'EnCompleteFunc', 'type': 'function', 'opts': {}},
+      \ {'sync': v:true, 'name': 'EnPackageDecl', 'type': 'function', 'opts': {}},
+     \ ])
+
+
