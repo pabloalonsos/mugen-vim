@@ -16,6 +16,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ensime/ensime-vim'
+Plugin 'junegunn/goyo.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'deraen/vim-cider'
@@ -304,6 +305,10 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Vim-www
 let g:www_shortcut_engines = { 'devdocs': ['Devdocs']  }
+
+" Goyo
+let g:goyo_width=120
+nnoremap <leader> :Goyo<CR>
 
 "JavaScript syntax
 let g:used_javascript_libs = 'underscore,angularjs,react,chai,lodash'
