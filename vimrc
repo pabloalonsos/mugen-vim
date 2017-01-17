@@ -16,7 +16,6 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ensime/ensime-vim'
-Plugin 'neilagabriel/vim-geeknote'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'deraen/vim-cider'
@@ -203,6 +202,10 @@ let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_javascript_eslint_args = "--no-eslintrc --config ~/Code/eslintrc"
 " " use eslintrc in current directory. Else look upwards. Else use standard
 " autocmd FileType javascript let b:syntastic_checkers = findfile('./eslintrc', '.;') != '' ? ['eslint'] : ['standard']
+let g:syntastic_mode_map = { "mode": "active",
+                           \ "active_filetypes": [],
+                           \ "passive_filetypes": ["scala"] }
+
 
 " vim-jsx
 let g:jsx_ext_required = 0
@@ -334,6 +337,7 @@ autocmd BufWrite *.js :call DeleteTrailingWS()
 autocmd BufWrite *.rs :call DeleteTrailingWS()
 autocmd BufWrite *.c :call DeleteTrailingWS()
 autocmd BufWrite *.cpp :call DeleteTrailingWS()
+autocmd BufWrite *.scala :call DeleteTrailingWS()
 
 " Switch from relative to absolute line number
 function! NumberToggle()
