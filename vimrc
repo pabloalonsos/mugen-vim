@@ -35,6 +35,7 @@ Plugin 'mhartington/oceanic-next'
 Plugin 'moll/vim-node'
 Plugin 'mxw/vim-jsx'
 Plugin 'othree/html5.vim'
+Plugin 'jparise/vim-graphql'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'phildawes/racer'
@@ -103,8 +104,8 @@ set number
 set relativenumber
 
 " Set tabs
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 
 " Use spaces instead of tabs
 set expandtab
