@@ -1,3 +1,6 @@
+" vim:fdm=marker
+
+" ---- Core Vim ---- {{{
 if has('vim')
     " Allow all commands
     set nocompatible
@@ -5,85 +8,89 @@ endif
 
 " Remap Leader to ','
 let mapleader=","
+" ---- }}}
+" ---- Plugin Setup ---- {{{
+call plug#begin('~/.local/share/nvim/plugged')
 
-" Allow python in neovim
-let g:python_host_prog='/usr/local/bin/python2.7'
+" ?????
+"Plug 'vim-scripts/tlib'
 
-" Vundle Setup
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'bling/vim-airline'
-Plugin 'deraen/vim-cider'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'garbas/vim-snipmate'
-Plugin 'gmarik/vundle'
-Plugin 'groenewege/vim-less'
-Plugin 'guns/vim-clojure-highlight'
-Plugin 'guns/vim-clojure-static'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'kien/ctrlp.vim'
-Plugin 'luochen1990/rainbow'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'marcWeber/vim-addon-mw-utils'
-Plugin 'mattn/emmet-vim'
-Plugin 'mhartington/oceanic-next'
-Plugin 'moll/vim-node'
-Plugin 'mxw/vim-jsx'
-Plugin 'othree/html5.vim'
-Plugin 'jparise/vim-graphql'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'phildawes/racer'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'rking/ag.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-obsession'
-Plugin 'racer-rust/vim-racer'
-Plugin 'tpope/vim-surround'
-Plugin 'venantius/vim-eastwood'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-scripts/asmM6502.vim'
-Plugin 'vim-scripts/tlib'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'waiting-for-dev/vim-www'
+" Snippets
+"Plug 'garbas/vim-snipmate'
+"Plug 'marcWeber/vim-addon-mw-utils'
 
-call vundle#end()
+" Syntax
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 
+" Session
+Plug 'tpope/vim-obsession'
+
+" Search
+Plug 'kien/ctrlp.vim'
+Plug 'rking/ag.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'majutsushi/tagbar'
+Plug 'waiting-for-dev/vim-www'
+
+" Themes & Colors
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'luochen1990/rainbow'
+Plug 'mhartington/oceanic-next'
+Plug 'w0ng/vim-hybrid'
+
+" Scala
+Plug 'derekwyatt/vim-scala'
+
+" Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'moll/vim-node'
+Plug 'jparise/vim-graphql'
+Plug 'mxw/vim-jsx'
+
+" Typescript
+Plug 'leafgarland/typescript-vim'
+
+" CSS / LESS / SASS
+Plug 'groenewege/vim-less'
+
+" HTML
+Plug 'othree/html5.vim'
+Plug 'mattn/emmet-vim'
+
+" Clojure
+Plug 'deraen/vim-cider'
+Plug 'guns/vim-clojure-highlight'
+Plug 'guns/vim-clojure-static'
+Plug 'tpope/vim-fireplace'
+Plug 'venantius/vim-eastwood'
+
+" Rust
+Plug 'rust-lang/rust.vim'
+Plug 'phildawes/racer'
+Plug 'racer-rust/vim-racer'
+
+" ASM6502
+Plug 'vim-scripts/asmM6502.vim'
+
+" Markdown
+Plug 'plasticboy/vim-markdown'
+
+call plug#end()
+" ---- }}}
+" ---- General Config ---- {{{
 " Show status line always
 set laststatus=2
 
 " Highlight cursor line
 set cursorline
-
-" Allow folding
-set foldenable
-
-" Fold by blocks
-set foldmethod=syntax
-
-" Fold nested blocks by default
-set foldlevelstart=10
-
-" Set colorscheme
-syntax enable
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-set background=dark
-colorscheme OceanicNext
-" colorscheme hybrid
-
-" Set font
-set guifont=Source\ Code\ Pro\ for\ Powerline\ Light:h12
-
-" Syntax highlight
-" syntax on
 
 " Turn on the Wild menu
 set wildmenu
@@ -137,53 +144,86 @@ set noswapfile
 set nobackup
 " No backups before overwriting file
 set nowritebackup
+" ---- }}}
+" ---- Folding ---- {{{
+" Allow folding
+set foldenable
 
-" Brackets and quotes
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
+" Fold by blocks
+set foldmethod=syntax
 
-inoremap (      ()<Left>
-inoremap (<CR>  (<CR>)<Esc>O
-inoremap ((     (
-inoremap ()     ()
+" Fold nested blocks by default
+set foldlevelstart=10
+" ---- }}}
+" ---- Theme ---- {{{
+" Set colorscheme
+syntax enable
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set background=dark
+"colorscheme OceanicNext
+colorscheme hybrid
 
-inoremap [      []<Left>
-inoremap [<CR>  [<CR>]<Esc>O
-inoremap [[     [
-inoremap []     []
+" Set font
+set guifont=Source\ Code\ Pro\ for\ Powerline\ Light:h12
 
-inoremap "      ""<Left>
-inoremap "<CR>  "<CR>"<Esc>O
-inoremap ""     "
-
-inoremap '      ''<Left>
-inoremap '<CR>  '<CR>'<Esc>O
-inoremap ''     '
-
-inoremap `      ``<Left>
-inoremap `<CR>  `<CR>`<Esc>O
-inoremap ``     `
-
-inoremap <      <><Left>
-inoremap <<CR>  <<CR>><Esc>O
-inoremap <<     <
-inoremap <>     <>
-
-imap <C-j> <Esc>:exec <Esc>wa
-imap <C-l> <Esc>:exec <Esc>A
+" Syntax highlight
+" syntax on
+" ---- }}}
+" ---- Custom Mappings ---- {{{
+" Key Mapping
+"  :nmap - Display normal mode maps
+"  :imap - Display insert mode maps
+"  :vmap - Display visual and select mode maps
+"  :smap - Display select mode maps
+"  :xmap - Display visual mode maps
+"  :cmap - Display command-line mode maps
+"  :omap - Display operator pending mode maps
 
 " move to beginning/end of line
 nnoremap B ^
 nnoremap E $
-
 " $/^ doesn't do anything
 nnoremap $ <nop>
 nnoremap ^ <nop>
 
-" map control-space to auto-complete
-inoremap <C-space> <C-x><C-o>
+" Autoclose Brackets and quotes
+"inoremap {      {}<Left>
+"inoremap {<CR>  {<CR>}<Esc>O
+"inoremap {{     {
+"inoremap {}     {}
+"
+"inoremap (      ()<Left>
+"inoremap (<CR>  (<CR>)<Esc>O
+"inoremap ((     (
+"inoremap ()     ()
+"
+"inoremap [      []<Left>
+"inoremap [<CR>  [<CR>]<Esc>O
+"inoremap [[     [
+"inoremap []     []
+"
+"inoremap "      ""<Left>
+"inoremap "<CR>  "<CR>"<Esc>O
+"inoremap ""     "
+"
+"inoremap '      ''<Left>
+"inoremap '<CR>  '<CR>'<Esc>O
+"inoremap ''     '
+"
+"inoremap `      ``<Left>
+"inoremap `<CR>  `<CR>`<Esc>O
+"inoremap ``     `
+"
+"inoremap <      <><Left>
+"inoremap <<CR>  <<CR>><Esc>O
+"inoremap <<     <
+"inoremap <>     <>
+
+" Skip character
+imap <C-j> <Esc>:exec <Esc>wa
+
+" Go to end of line
+imap <C-l> <Esc>:exec <Esc>A
 
 " buffer navigation
 set hidden
@@ -191,10 +231,91 @@ nmap <leader>n :enew<cr>
 noremap <silent> [b :bprevious <CR>
 noremap <silent> ]b :bnext <CR>
 
-""""""""""""""""""""""""
-" Plugin Configuration "
-""""""""""""""""""""""""
+" Open bufexplorer
+map <leader>e :Explore<CR>:set number<CR>
 
+" bind K to grep word under cursor
+nnoremap F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" remap j and k to scroll by visual lines
+nnoremap j gj
+nnoremap k gk
+
+" Deactivate arrow keys
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+
+" nvim specific commands
+if has('nvim')
+    " Exit terminal mode with Esc
+    :tnoremap <Esc> <C-\><C-n>
+    " Use alt+hjkl to move around windows
+    :tnoremap <A-h> <C-\><C-n><C-w>h
+    :tnoremap <A-j> <C-\><C-n><C-w>j
+    :tnoremap <A-k> <C-\><C-n><C-w>k
+    :tnoremap <A-l> <C-\><C-n><C-w>l
+    :nnoremap <A-h> <C-w>h
+    :nnoremap <A-j> <C-w>j
+    :nnoremap <A-k> <C-w>k
+    :nnoremap <A-l> <C-w>l
+else
+endif
+" map control-space to auto-complete
+"inoremap <C-space> <C-x><C-o>
+" ---- }}}
+" ---- Custom Methods ---- {{{
+" Delete trailing white space on save
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.js :call DeleteTrailingWS()
+autocmd BufWrite *.json :call DeleteTrailingWS()
+autocmd BufWrite *.css :call DeleteTrailingWS()
+autocmd BufWrite *.less :call DeleteTrailingWS()
+autocmd BufWrite *.sass :call DeleteTrailingWS()
+autocmd BufWrite *.rs :call DeleteTrailingWS()
+autocmd BufWrite *.c :call DeleteTrailingWS()
+autocmd BufWrite *.cpp :call DeleteTrailingWS()
+autocmd BufWrite *.scala :call DeleteTrailingWS()
+
+" Switch from relative to absolute line number
+function! NumberToggle()
+    set number
+    if(&relativenumber == 1)
+        set relativenumber!
+    else
+        set relativenumber
+    endif
+endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
+
+" Switch from two space to four space tabs
+function! SpacesToggle()
+    if(&tabstop == 4)
+        set tabstop=2
+        set shiftwidth=2
+    else
+        set tabstop=4
+        set shiftwidth=4
+    endif
+endfunc
+nnoremap <C-s> :call SpacesToggle()<cr>
+" ---- }}}
+" ---- Plugin Configuration ---- {{{
 " Syntastic
 let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_javascript_eslint_args = "--no-eslintrc --config ~/Code/eslintrc"
@@ -204,13 +325,8 @@ let g:syntastic_mode_map = { "mode": "active",
                            \ "active_filetypes": [],
                            \ "passive_filetypes": ["scala"] }
 
-
 " vim-jsx
 let g:jsx_ext_required = 0
-
-map <leader>e :Explore<CR>:set number<CR>
-set path=$PWD/**
-set suffixesadd=.js,.py,.c,.cpp,.json
 
 " emmet
 " let g:user_emmet_expandabbr_key = '<C-F>'
@@ -219,7 +335,7 @@ set suffixesadd=.js,.py,.c,.cpp,.json
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules|\.sass-cache|bower_components|build|target|dist)$'
+let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules|\.sass-cache|bower_components|build|target|dist|lib)$'
 
 " Use Ag as the default search engine for ctrlP
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -242,9 +358,6 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
-
-" bind K to grep word under cursor
-nnoremap F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " ctags
 set tags=./tags,tags
@@ -272,13 +385,6 @@ let g:tagbar_type_rust = {
 let g:racer_cmd="/Users/pabloalonso/.vim/bundle/racer/target/release/racer"
 let $RUST_SRC_PATH="/Users/pabloalonso/.rust/src"
 
-" Scala Ensime
-"Typechecking after writing
-autocmd BufWritePost *.scala silent :EnTypeCheck
-"Easy Type Inspection
-nnoremap <localleader>t :EnTypeCheck<CR>
-
-
 " Vim-Airline
 "let g:airline_theme='powerlineish'
 let g:airline_theme='murmur'
@@ -288,7 +394,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Rainbow Parentheses
  let g:rainbow_active = 1
-
  let g:rainbow_conf = {
              \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
              \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
@@ -296,98 +401,13 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
              \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
              \}
 
-" Vim-Geeknote
-" let g:GeeknoteNeovim="True"
-" let g:GeeknoteFormat="markdown"
-
 " Vim-www
 let g:www_shortcut_engines = { 'devdocs': ['Devdocs']  }
 
-" Goyo
-let g:goyo_width=120
-nnoremap <leader> :Goyo<CR>
-
 "JavaScript syntax
 let g:used_javascript_libs = 'underscore,angularjs,react,chai,lodash'
+" ---- }}}
 
-" Key Mapping
-"  :nmap - Display normal mode maps
-"  :imap - Display insert mode maps
-"  :vmap - Display visual and select mode maps
-"  :smap - Display select mode maps
-"  :xmap - Display visual mode maps
-"  :cmap - Display command-line mode maps
-"  :omap - Display operator pending mode maps
+" Allow python in neovim
+"let g:python_host_prog='/usr/local/bin/python2.7'
 
-" Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-" remap j and k to scroll by visual lines
-nnoremap j gj
-nnoremap k gk
-
-" Delete trailing white space on save
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.js :call DeleteTrailingWS()
-autocmd BufWrite *.rs :call DeleteTrailingWS()
-autocmd BufWrite *.c :call DeleteTrailingWS()
-autocmd BufWrite *.cpp :call DeleteTrailingWS()
-autocmd BufWrite *.scala :call DeleteTrailingWS()
-
-" Switch from relative to absolute line number
-function! NumberToggle()
-    set number
-    if(&relativenumber == 1)
-        set relativenumber!
-    else
-        set relativenumber
-    endif
-endfunc
-
-nnoremap <C-n> :call NumberToggle()<cr>
-
-function! SpacesToggle()
-    if(&tabstop == 4)
-        set tabstop=2
-        set shiftwidth=2
-    else
-        set tabstop=4
-        set shiftwidth=4
-    endif
-endfunc
-
-nnoremap <C-s> :call SpacesToggle()<cr>
-
-" Deactivate arrow keys
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
-
-" nvim specific commands
-if has('nvim')
-    " Exit terminal mode with Esc
-    :tnoremap <Esc> <C-\><C-n>
-    " Use alt+hjkl to move around windows
-    :tnoremap <A-h> <C-\><C-n><C-w>h
-    :tnoremap <A-j> <C-\><C-n><C-w>j
-    :tnoremap <A-k> <C-\><C-n><C-w>k
-    :tnoremap <A-l> <C-\><C-n><C-w>l
-    :nnoremap <A-h> <C-w>h
-    :nnoremap <A-j> <C-w>j
-    :nnoremap <A-k> <C-w>k
-    :nnoremap <A-l> <C-w>l
-else
-endif
