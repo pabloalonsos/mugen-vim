@@ -19,6 +19,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
+" Completion
+Plug 'Valloric/YouCompleteMe', { 'do': './install --all' }
+
 " Snippets
 "Plug 'garbas/vim-snipmate'
 "Plug 'marcWeber/vim-addon-mw-utils'
@@ -41,6 +44,7 @@ Plug 'waiting-for-dev/vim-www'
 " Themes & Colors
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'larsbs/vimterial_dark'
 Plug 'luochen1990/rainbow'
 Plug 'mhartington/oceanic-next'
 Plug 'w0ng/vim-hybrid'
@@ -80,8 +84,15 @@ Plug 'racer-rust/vim-racer'
 " ASM6502
 Plug 'vim-scripts/asmM6502.vim'
 
+" Solidity
+Plug 'tomlion/vim-solidity'
+
 " Markdown
 Plug 'plasticboy/vim-markdown'
+
+" Orgmode
+Plug 'jceb/vim-orgmode'
+Plug 'tpope/vim-speeddating'
 
 call plug#end()
 " ---- }}}
@@ -272,6 +283,10 @@ if has('nvim')
     :nnoremap <A-l> <C-w>l
 else
 endif
+
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+
 " map control-space to auto-complete
 "inoremap <C-space> <C-x><C-o>
 " ---- }}}
@@ -361,6 +376,7 @@ endif
 
 " ctags
 set tags=./tags,tags
+nnoremap <leader>. :CtrlPTag<cr>
 
 " Tagbar
 let g:tagbar_usearrows = 1
