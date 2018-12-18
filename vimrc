@@ -61,6 +61,7 @@ Plug 'mxw/vim-jsx'
 
 " Typescript
 Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
 
 " CSS / LESS / SASS
 Plug 'groenewege/vim-less'
@@ -93,6 +94,10 @@ Plug 'plasticboy/vim-markdown'
 " Orgmode
 Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-speeddating'
+
+" Writing
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 " ---- }}}
@@ -176,6 +181,9 @@ colorscheme hybrid
 
 " Set font
 set guifont=Source\ Code\ Pro\ for\ Powerline\ Light:h12
+
+" Set colors
+set termguicolors
 
 " Syntax highlight
 " syntax on
@@ -333,6 +341,8 @@ nnoremap <C-s> :call SpacesToggle()<cr>
 " ---- Plugin Configuration ---- {{{
 " Syntastic
 let g:syntastic_javascript_checkers = ['eslint']
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 " let g:syntastic_javascript_eslint_args = "--no-eslintrc --config ~/Code/eslintrc"
 " " use eslintrc in current directory. Else look upwards. Else use standard
 " autocmd FileType javascript let b:syntastic_checkers = findfile('./eslintrc', '.;') != '' ? ['eslint'] : ['standard']
@@ -424,6 +434,12 @@ let g:www_shortcut_engines = { 'devdocs': ['Devdocs']  }
 let g:used_javascript_libs = 'underscore,angularjs,react,chai,lodash'
 " ---- }}}
 
+" Goyo and Limelight
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+let g:goyo_width = 120
+
 " Allow python in neovim
-"let g:python_host_prog='/usr/local/bin/python2.7'
+let g:python_host_prog='/usr/local/bin/python2.7'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
