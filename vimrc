@@ -17,10 +17,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Git
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+""""  --->  Plug 'tpope/vim-fugitive'
 
 " Completion
-Plug 'Valloric/YouCompleteMe', { 'do': './install --all' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install --all' }
 
 " Snippets
 "Plug 'garbas/vim-snipmate'
@@ -39,7 +39,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'majutsushi/tagbar'
-Plug 'waiting-for-dev/vim-www'
+"Plug 'waiting-for-dev/vim-www'
 
 " Themes & Colors
 Plug 'bling/vim-airline'
@@ -51,6 +51,9 @@ Plug 'w0ng/vim-hybrid'
 
 " Scala
 Plug 'derekwyatt/vim-scala'
+
+" Golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Javascript
 Plug 'pangloss/vim-javascript'
@@ -91,9 +94,10 @@ Plug 'tomlion/vim-solidity'
 " Markdown
 Plug 'plasticboy/vim-markdown'
 
-" Orgmode
-Plug 'jceb/vim-orgmode'
+" Orgmode & Notetaking
+"Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-speeddating'
+Plug 'vimwiki/vimwiki'
 
 " Writing
 Plug 'junegunn/goyo.vim'
@@ -173,7 +177,7 @@ set foldlevelstart=10
 " ---- }}}
 " ---- Theme ---- {{{
 " Set colorscheme
-syntax enable
+"syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
 "colorscheme OceanicNext
@@ -186,7 +190,7 @@ set guifont=Source\ Code\ Pro\ for\ Powerline\ Light:h12
 set termguicolors
 
 " Syntax highlight
-" syntax on
+syntax on
 " ---- }}}
 " ---- Custom Mappings ---- {{{
 " Key Mapping
@@ -254,7 +258,7 @@ noremap <silent> ]b :bnext <CR>
 map <leader>e :Explore<CR>:set number<CR>
 
 " bind K to grep word under cursor
-nnoremap F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+"nnoremap F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -306,6 +310,7 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 autocmd BufWrite *.js :call DeleteTrailingWS()
+autocmd BufWrite *.ts :call DeleteTrailingWS()
 autocmd BufWrite *.json :call DeleteTrailingWS()
 autocmd BufWrite *.css :call DeleteTrailingWS()
 autocmd BufWrite *.less :call DeleteTrailingWS()
@@ -314,6 +319,8 @@ autocmd BufWrite *.rs :call DeleteTrailingWS()
 autocmd BufWrite *.c :call DeleteTrailingWS()
 autocmd BufWrite *.cpp :call DeleteTrailingWS()
 autocmd BufWrite *.scala :call DeleteTrailingWS()
+autocmd BufWrite *.md :call DeleteTrailingWS()
+autocmd BufWrite *.wiki :call DeleteTrailingWS()
 
 " Switch from relative to absolute line number
 function! NumberToggle()
@@ -419,16 +426,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Rainbow Parentheses
- let g:rainbow_active = 1
- let g:rainbow_conf = {
-             \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-             \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-             \   'operators': '_,_',
-             \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-             \}
-
-" Vim-www
-let g:www_shortcut_engines = { 'devdocs': ['Devdocs']  }
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+      \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+      \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+      \   'operators': '_,_',
+      \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+      \}
 
 "JavaScript syntax
 let g:used_javascript_libs = 'underscore,angularjs,react,chai,lodash'
