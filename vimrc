@@ -48,6 +48,8 @@ Plug 'larsbs/vimterial_dark'
 Plug 'luochen1990/rainbow'
 Plug 'mhartington/oceanic-next'
 Plug 'w0ng/vim-hybrid'
+Plug 'rakr/vim-one'
+Plug 'sainnhe/edge'
 
 " Scala
 Plug 'derekwyatt/vim-scala'
@@ -65,6 +67,8 @@ Plug 'mxw/vim-jsx'
 " Typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
+Plug 'peitalin/vim-jsx-typescript'
+
 
 " CSS / LESS / SASS
 Plug 'groenewege/vim-less'
@@ -72,6 +76,9 @@ Plug 'groenewege/vim-less'
 " HTML
 Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
+
+" Python
+"Plug 'cjrh/vim-conda'
 
 " Clojure
 Plug 'deraen/vim-cider'
@@ -102,6 +109,9 @@ Plug 'vimwiki/vimwiki'
 " Writing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+
+" Custom Landing Page
+"Plug 'mhinz/vim-startify'
 
 call plug#end()
 " ---- }}}
@@ -179,9 +189,12 @@ set foldlevelstart=10
 " Set colorscheme
 "syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"set background=light
 set background=dark
-"colorscheme OceanicNext
-colorscheme hybrid
+colorscheme OceanicNext
+"colorscheme hybrid
+let g:one_allow_italics = 1 " I love italic for comments
+"colorscheme one
 
 " Set font
 set guifont=Source\ Code\ Pro\ for\ Powerline\ Light:h12
@@ -346,6 +359,10 @@ endfunc
 nnoremap <C-s> :call SpacesToggle()<cr>
 " ---- }}}
 " ---- Plugin Configuration ---- {{{
+" Theme
+set t_8b=^[[48;2;%lu;%lu;%lum
+set t_8f=^[[38;2;%lu;%lu;%lum
+
 " Syntastic
 let g:syntastic_javascript_checkers = ['eslint']
 let g:tsuquyomi_disable_quickfix = 1
@@ -420,7 +437,8 @@ let $RUST_SRC_PATH="/Users/pabloalonso/.rust/src"
 
 " Vim-Airline
 "let g:airline_theme='powerlineish'
-let g:airline_theme='murmur'
+"let g:airline_theme='murmur'
+let g:airline_theme='one'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -447,3 +465,7 @@ let g:goyo_width = 120
 let g:python_host_prog='/usr/local/bin/python2.7'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
+" VimWiki
+let g:vimwiki_list = [{'path': '~/SynologyDrive/Drive/vimwiki',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_folding = 'custom'
